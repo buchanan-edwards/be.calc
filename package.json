@@ -1,0 +1,29 @@
+{
+  "name": "be.bdd",
+  "version": "1.0.0",
+  "description": "Behavior-Driven Development Demonstration",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --require mocha-clean test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fhellwig/be.bdd.git"
+  },
+  "keywords": [
+    "BDD"
+  ],
+  "author": "Frank Hellwig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fhellwig/be.bdd/issues"
+  },
+  "homepage": "https://github.com/fhellwig/be.bdd#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha-clean": "^1.0.0"
+  }
+}
