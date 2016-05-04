@@ -31,7 +31,8 @@ describe('Calc', function() {
     describe('add()', function() {
 
         it('should return 5 when given 2 and 3', function() {
-            calc.add(2, 3).should.be.a('number').and.equal(5);
+            let x = calc.add(2,3);
+            x.should.be.a('number').and.equal(5);
         });
 
         it('should throw an error when given non-numeric arguments', function() {
