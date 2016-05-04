@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/fhellwig/be.bdd#readme",
   "dependencies": {
+    "body-parser": "^1.15.0",
     "express": "^4.13.4"
   },
   "devDependencies": {

@@ -9,6 +9,16 @@ Buchanan &amp; Edwards
 
 ***
 
+## First Thursday Tech Talk
+
+    FT3
+
+Sponsored by the Software Engineering Community of Practice
+
+Held on the first Thursday of every month.
+ 
+***
+
 ## What is Behavior-Driven Development?
 
 Defines *what* a system **should** do and the *expected* results.
