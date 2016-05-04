@@ -32,9 +32,9 @@ class Calc {
 }
 
 function _checkArgs() {
-	const args = Array.prototype.slice.call(arguments);
+    const args = Array.prototype.slice.call(arguments);
     args.forEach(arg => {
-        if (typeof arg !== 'number') {
+        if (typeof arg !== 'number' || isNaN(arg)) {
             throw new Error(`Expected a number instead of ${typeof arg}`);
         }
     });
