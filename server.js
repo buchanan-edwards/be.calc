@@ -10,27 +10,33 @@ const app = express();
 
 app.use(bodyParser.text());
 
+// Returns the usage.
 app.get('/', (req, res, next) => {
-	res.send('Usage: op a [b]');
+    res.send('Usage: op a [b]');
 });
 
+// Accepts a text body of an operator followed by one or more operands.
 app.post('/', (req, res, next) => {
-    let args = req.body.split(/\s+/);
-    let func = calc[args[0]];
-    if (typeof func !== 'function') {
-        return res.status(400).send(`Invalid function: ${args[0]}`);
-    }
     try {
-        args = args.slice(1);
-        for (let i = 0; i < args.length; i++) {
-            args[i] = parseFloat(args[i]);
-        }
-        res.status(200).send('' + func.apply(calc, args));
+        let args = req.body.split(/\s+/);
+        let func = calcFunction(args[0]);
+        let nums = args.slice(1).map(parseFloat);
+        res.status(200).send(func.apply(calc, nums).toString());
     } catch (e) {
         res.status(400).send(e.message);
     }
 });
 
+// Starts the server.
 app.listen(port, _ => {
     console.log(`Listening on port ${port}`);
 });
+
+// Returns the calculator function given the function name.
+function calcFunction(name) {
+    let func = calc[name];
+    if (typeof func !== 'function') {
+        throw new Error(`Invalid function: ${name}`);
+    }
+    return func;
+}

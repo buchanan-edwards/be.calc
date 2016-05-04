@@ -7,17 +7,17 @@ class Calc {
         return a + b;
     }
 
-    subtract(a, b) {
+    sub(a, b) {
         _checkArgs(a, b);
         return a - b;
     }
 
-    multiply(a, b) {
+    mul(a, b) {
         _checkArgs(a, b);
         return a * b;
     }
 
-    divide(a, b) {
+    div(a, b) {
         _checkArgs(a, b);
         if (b === 0) {
             throw new Error('Cannot divide by zero');
@@ -25,7 +25,7 @@ class Calc {
         return a / b;
     }
 
-    sqrt(x) {
+    sqr(x) {
         _checkArgs(x);
         return Math.sqrt(x);
     }
