@@ -1,57 +1,90 @@
+title: Behavior-Driven Development
+author:
+    name: Frank Hellwig
+    email: frank.hellwig@buchanan-edwards.com
+output: bdd.html
+controls: false
+
+--
+
 # Behavior-Driven Development
 
-Using natural language constructs for performing
-synchronous and asynchronous application-level tests.
+## Using natural language constructs for performing synchronous and asynchronous application-level tests.
 
-Frank Hellwig
-Director of Engineering
-Buchanan &amp; Edwards
+--
 
-***
+### First Thursday Tech Talk
 
-## First Thursday Tech Talk
+This seminar is the first in a monthly installment of tech talks held on the first Thursday of each month.
 
-    FT3
+We call it:
 
-Sponsored by the Software Engineering Community of Practice
+>FT3
 
-Held on the first Thursday of every month.
- 
-***
+It is part of the Software Engineering Community of Practice and we encourage all of you to participate in this new CoP.
 
-## What is Behavior-Driven Development?
+--
 
-Defines *what* a system **should** do and the *expected* results.
+### What is Behavior-Driven Development?
 
-The goal is writing expressive tests using natural-language sentences.
+Specifies what a system **should** and **should not** do using natural-language sentences.
 
-*Have we seen this before?*
+- Invented by Dan North
+- Focuses on *should* and *should not* instead of the word *test*
+- Can serve as acceptance tests
+- Parallels agile methodologies
 
-***
+--
 
-## Expressiveness is a trend...
+### What's the difference between BDD and TDD?
+
+"In software engineering, BDD is a software development process that emerged from TDD. BDD combines the general techniques and principles of TDD with ideas from domain-driven design and object-oriented analysis and design to provide software development and management teams with shared tools and a shared process to collaborate on software development."
+
+<small>https://en.wikipedia.org/wiki/Behavior-driven_development</small>
+
+--
+
+### Expressiveness is a trend...
 
 In Agile development, we write use-cases like so:
 
-*As a user, I want to change my own password so that administrators need not be bothered.*
+>*As a user, I want to change my own password so that administrators need not be bothered.*
 
-This provides more information than...
+These are written in the form:
 
-*Requirement: User password change.*
+- **As** [X],
+- **I want** [Y]
+- **so that** [Z].
 
-***
+--
 
-## Testing is no different
+### ...and BDD follows this trend
 
-    x = 2 + 3
+In BDD, we write statements that parallel user stories using natural language.
 
-Our test:
+- **Given** some initial context (the givens),
+- **when** an event occurs,
+- **then** ensure some outcomes.
 
-    x should be a number and equal five
+BDD tools allow us to carry this forward to the actual code.
 
-***
+--
 
-## The old way...
+### Tell me what you want
+
+If this is what we want to test...
+
+>*x = 2 + 3*
+
+...then the resulting behavior should read like this:
+
+>*x should be a number and equal five*
+
+Again, it's as much about what the system **should not** do (e.g., divide by zero) as much as what it **should** do.
+
+--
+
+### The old way...
 
 ```javascript
 let x = 2 + 3;
@@ -64,35 +97,31 @@ try {
 }
 ```
 
-***
+**What is wrong with that?**
 
-## What is wrong with that?
+Well, nothing, until you have hundreds of test and you are tired of writing `try catch` blocks and you want a pretty printout of your passing and failing tests and you want to test asynchronous code such as REST APIs.
 
-Well, nothing, until you have hundreds of test and you are tired of writing `try catch` blocks and you want a pretty printout of your passing and failing tests...
+Then it is a chore and you want something better.
 
-Then you want something better.
+--
 
-***
-
-## We want to test this...
+### We want to test this...
 
 **x should be a number and equal five.**
 
-***
+--
 
-## ...so our code should be this:
+### ...so our code should be this:
 
-```javascript
 x.should.be.a('number').and.equal(5);
-```
 
 That is the actual code.
 
 I copied it from my `test.js` file.
 
-***
+--
 
-## What is BDD then?
+### What is BDD then?
 
 BDD is as much a technique and paradigm as it is having the tools to make such testing easy and enjoyable.
 
@@ -101,19 +130,18 @@ I will now show you how using `mocha` and `chai`.
 <small>
 N.B. The .NET world has tools such as NSpec, SpecFlow, and LightBDD.
 </small>
-***
 
-## Mocha
+--
 
->Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun.
+### Mocha and Chai
 
-## Chai
+- Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun.
 
->Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+- Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 
-***
+--
 
-## Summary
+### Summary
 
 The test framework, `mocha`, manages the tests and the test report.
 
